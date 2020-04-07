@@ -1,20 +1,27 @@
 def input_students
-  puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
   #create an empty array
   students = []
   #get the first name
+  puts "Enter the student name"
   name = gets.chomp
-  #hobbie = gets.chomp #added hobbies ex.5
   #while the name is not empty, repeat this code
   while !name.empty?
+    puts "Enter student's hobbie"
+    hobbie = gets.chomp#added hobbies ex.5,7
+    hobbie != "" ? hobbie.to_sym : hobbie = :no_hobbie #EX 7
     #add the student hash to the array
-    students << {name: name, cohort: :november }
-    #students << {name: name, cohort: :november, hobbies: :hobbie } #added hobbies ex.5
-    puts "Now we have #{students.count} students"
+    #students << {name: name, cohort: hobbie }
+    puts "Is there any mistake in your last student, this is last exit before the bridge!" #EX 7
+    puts "Do you wanna (C)hange or (K)eep it. Press C or. K" #EX 7
+    input = gets.chomp #EX 7
+    if input == "K" #EX 7
+      students << {name: name, cohort: :november, hobbie: hobbie } #added hobbies ex.5 #EX 7
+      puts "Now we have #{students.count} students"
+    end #EX 7
     #get another name from the user
+    puts "Enter the student name"
     name = gets.chomp
-    #hobbie = gets.chomp #added hobbie ex.5
   end
   #return the array of input_students
   students
@@ -25,9 +32,10 @@ puts "-------------"
 end
 def print(names)
   names.each_with_index do |student, number| #number before the name of each student
-    puts "#{number+1}. #{student[:name].center(10)} (#{student[:cohort]} cohort)" #exercises 0, 1 # center() method try  ex. 6
+    #puts "#{number+1}. #{student[:name].center(10)} (#{student[:cohort]} cohort)" #exercises 0, 1 # center() method try  ex. 6
     #puts student[:name] if student[:name][0].upcase == "A" #print the student whose name begins with "a" letter, ex. 2
     #puts student[:name] if student[:name].gsub(/\s+/, "").length < 12 #  print the students whose name is shorter than 12 characters. ex 3
+    puts "#{number+1}. #{student[:name].center(10)} #{student[:cohort]} cohort #{student[:hobbie]} "
   end
 
   #=begin # ex.4 prints all students using while
