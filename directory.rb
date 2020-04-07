@@ -24,11 +24,11 @@ puts "The students of Villains Academy"
 puts "-------------"
 end
 def print(names)
-  #names.each_with_index do |student, number| #number before the name of each student
-    #puts "#{number+1}. #{student[:name]} (#{student[:cohort]} cohort)" #exercises 0, 1
+  names.each_with_index do |student, number| #number before the name of each student
+    puts "#{number+1}. #{student[:name].center(10)} (#{student[:cohort]} cohort)" #exercises 0, 1 # center() method try  ex. 6
     #puts student[:name] if student[:name][0].upcase == "A" #print the student whose name begins with "a" letter, ex. 2
     #puts student[:name] if student[:name].gsub(/\s+/, "").length < 12 #  print the students whose name is shorter than 12 characters. ex 3
-  #end
+  end
 
   #=begin # ex.4 prints all students using while
   #loop_number = 0
@@ -37,6 +37,9 @@ def print(names)
   #  loop_number += 1
   #end
   #=end
+
+
+
 
 end
 def print_footer(names)
