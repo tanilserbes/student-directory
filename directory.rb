@@ -22,9 +22,10 @@ puts "-------------"
 end
 def print(names)
   names.each_with_index do |student, number| #number before the name of each student
-    ##puts "#{number+1}. #{student[:name]} (#{student[:cohort]} cohort)"
-    puts student[:name] if student[:name][0].upcase == "A" #print the student whose name begins with "a" letter
-  end
+    #puts "#{number+1}. #{student[:name]} (#{student[:cohort]} cohort)" #exercises 0, 1
+    #puts student[:name] if student[:name][0].upcase == "A" #print the student whose name begins with "a" letter, ex. 2
+    puts student[:name] if student[:name].gsub(/\s+/, "").length < 12 #  print the students whose name is shorter than 12 characters. ex 3
+   end
 end
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
