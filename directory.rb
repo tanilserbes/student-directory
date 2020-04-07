@@ -21,8 +21,9 @@ puts "The students of Villains Academy"
 puts "-------------"
 end
 def print(names)
-  names.each_with_index do |student, index|
-    puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+  names.each_with_index do |student, number| #number before the name of each student
+    ##puts "#{number+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+    puts student[:name] if student[:name][0].upcase == "A" #print the student whose name begins with "a" letter
   end
 end
 def print_footer(names)
