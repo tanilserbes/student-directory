@@ -4,7 +4,8 @@ def input_students
   students = []
   #get the first name
   puts "Enter the student name"
-  name = gets.chomp
+  #name = gets.chomp
+  name = gets.chop
   #while the name is not empty, repeat this code
   while !name.empty?
     puts "Enter student's hobbie"
@@ -26,7 +27,8 @@ def input_students
 
     #get another name from the user
     puts "Enter the student name"
-    name = gets.chomp
+    #name = gets.chomp
+    name = gets.chop
   end
   #return the array of input_students
   students
