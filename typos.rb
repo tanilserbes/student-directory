@@ -1,7 +1,6 @@
+
 def interactive_menu
-  @students = []
   loop do
-    try_load_students
     print_menu
     process(STDIN.gets.chomp)
   end
@@ -27,7 +26,7 @@ def process(selection)
   # 3. do what the user has asked
   case selection
     when "1"
-      @students = input_students
+      input_students
     when "2"
       show_students
     when "3"
@@ -45,19 +44,16 @@ end
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
-  #create an empty array
-  @students = []
   # get the first name
-  name = gets.chomp
+  name = STDIN.gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
   # add the student hash to the array
   @students << {name: name, cohort: :november}
   puts "Now we have #{@students.count} students"
   # get another name from the user
-  name = gets.chomp
+  name = STDIN.gets.chomp
   end
-  @students
 end
 
 def print_header
@@ -108,4 +104,6 @@ def load_students(filename = "students.csv")
   end
   file.close
 end
+@students = []
+try_load_students
 interactive_menu
